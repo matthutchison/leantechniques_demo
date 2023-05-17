@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-from dataclasses import astuple
 from leantechniques_demo.request import get_photos
 from textual.app import App, ComposeResult
 from textual.containers import Container, Vertical, VerticalScroll
 from textual.widgets import DataTable, Input, Button
 
-HEADERS = ['ID', 'Album ID', 'Title', 'URL', 'Thumbnail URL']
+HEADERS = ['ID', 'Album ID', 'Title']
 
 class DisplayApp(App):
     '''Main application class'''
@@ -28,9 +27,9 @@ class DisplayApp(App):
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == 'load_data':
             request_filter_inputs = self.query(Input).exclude('#title')
-            local_filter_input = self.query_one('#title').value
+            title_filter = self.query_one('#title').value
             params = {i.id: i.value for i in request_filter_inputs if i.value}
-            data = [astuple(i) for i in get_photos(**params) if local_filter_input in i.title]
+            data = [(i.id, i.albumId, i.title) for i in get_photos(**params) if title_filter in i.title]
             table = self.query_one(DataTable)
             table.clear()
             table.add_rows(data)
