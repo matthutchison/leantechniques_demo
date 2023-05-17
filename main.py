@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 from leantechniques_demo.request import get_photos
 from textual.app import App, ComposeResult
+from textual.binding import Binding
 from textual.containers import Container, Vertical, VerticalScroll
 from textual.reactive import reactive
 from textual.widgets import DataTable, Input, Button, Label
+from textual import events
 
 class ReactiveLabel(Label):
     '''Label widget with reactive text'''
@@ -33,6 +35,10 @@ class DisplayApp(App):
     def on_mount(self) -> None:
         table = self.query_one(DataTable)
         table.add_columns('Photo ID', 'Album ID', 'Title')
+
+    def on_key(self, event: events.Key) -> None:
+        if event.key == 'enter':
+            self.update_table()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == 'load_data':
