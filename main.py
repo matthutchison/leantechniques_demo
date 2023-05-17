@@ -55,7 +55,9 @@ class DisplayApp(App):
             table.add_rows(data)
             self.info.text = f'({len(data)}) rows matching criteria'
         except Exception as e:
-            self.info.text = f'An error occurred while fetching records.'
+            table = self.query_one(DataTable)
+            table.clear()
+            self.info.text = f'An error occurred while fetching records.\n{e}'
 
 
 if __name__ == "__main__":
