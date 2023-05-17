@@ -1,8 +1,8 @@
 # Lean TECHniques Technical Showcase - Matt Hutchison
 An application displaying photo album information for the purpose of demonstrating technical qualifications to the review team.
 
-## Dependencies
-The application requires either that Docker is installed or a local installation of Python (3.9 or greater).
+## Before you get started
+The application requires either that Docker is installed or a local installation of Python (3.9 or greater). Clone the repository from GitHub and proceed to the instructions for either [Docker](#running-with-docker) or [local Python](#running-with-local-python)
 
 ## Running with Docker
 If GNU `make` and Docker are installed, the simplest way to run the application is `make run` from this directory. If `make` is not present, the container can be built and run using `docker build -t leantechniques-demo . && docker run -it --rm leantechniques-demo`.
@@ -14,4 +14,4 @@ It is possible to run the application without Docker if you have a current insta
 - Run the application with `python3 main.py`
 
 ## Development
-Automated tests can be run using `make test`, which will build the latest docker image and execute the test suite. Tests can also be run on a local python installation using `python3 -m unittest`.
+Automated tests can be run using `make test`, which will build the latest docker image and execute the test suite. Tests can also be run on a local Python installation using `python3 -m unittest`.
