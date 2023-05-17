@@ -1,0 +1,16 @@
+#app-grid {
+    layout: grid;
+    grid-size: 2;
+    grid-columns: 1fr 4fr;
+    grid-rows: 1fr;
+    background: black;
+}
+
+.box {
+    border: solid gray;
+}
+
+Button {
+    border: solid gray;
+    background: black;
+}
