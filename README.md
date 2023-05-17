@@ -9,6 +9,7 @@ If GNU `make` and Docker are installed, the simplest way to run the application 
 
 ## Running with local Python
 It is possible to run the application without Docker if you have a current installation of Python (3.9 or greater). A virtual environment (venv or conda) is highly recommended if you take this approach. To use:
+- Activate the desired virtual environment
 - Install the requirements found in requirements.txt (generally `pip install -r requirements.txt`)
 - Run the application with `python3 main.py`
 
