@@ -2,13 +2,16 @@ from dataclasses import dataclass
 from urllib.parse import urlparse
 
 @dataclass
-class Album:
+class Photo:
     '''Data container for the photo album structure.'''
-    albumId: int
     id: int
+    albumId: int
     title: str
     url: str
     thumbnailUrl: str
+
+    def __post_init__(self):
+        self.validate()
 
     def validate(self):
         if not isinstance(self.albumId, int):
